@@ -1,0 +1,27 @@
+---
+metadata:
+  - title: "ZEN of Fortran"
+  - subtitle: "a Path to discover Modern Fortran"
+  - authors:
+    - Stefano Zaghi
+  - authors_short:
+    - S. Zaghi
+  - emails:
+    - stefano.zaghi@gmail.it
+  - affiliations:
+    - CNR-INSEAN, Marine Technology Research Institute
+  - affiliations_short:
+    - CNR-INSEAN
+  - location: CNR-INSEAN, Via di Vallerano 139, 00128, Roma
+  - date: to be fixed
+  - max_time: 360
+  - toc_depth: 4
+  - dirs_to_copy:
+    - css
+  #   - figures
+  #   - videos
+  - css_overtheme:
+    - css/table.css
+    - css/code.css
+  #   - css/figure_zoom.css
+---

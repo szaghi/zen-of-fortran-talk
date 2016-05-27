@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+  background-color: #586e75;
+}
+
+table :first-child tr {
+  color: #af8700;
+}
+
+table tr {
+  /* border-top: 1px solid #ffffd7; */
+  background-color: #002b36;
+}
+
+table tr:nth-child(2n) {
+  background-color: #586e75;
+}
+
+table tr th,table tr td {
+  text-align: left;
+  padding: 1%;
+}
