@@ -1,57 +1,1542 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Zen-of-fortran-talk by szaghi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <meta charset="utf-8" />
+    <meta author="Stefano Zaghi" />
+    <title>ZEN of Fortran</title>
+    <meta subtitle="a Path to discover Modern Fortran" />
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/matisse_defaults.css" rel="stylesheet" />
+    <link href="css/matisse_defaults_printing.css" rel="stylesheet" />
+    <link href="js/highlight/styles/solarized_dark.css" rel="stylesheet" />
+    <link href="css/theme.css" rel="stylesheet" />
+    <link href="css/table.css" rel="stylesheet" />
+    <link href="css/code.css" rel="stylesheet" />
+    <link href="css/slide-0-overtheme.css" rel="stylesheet" />
   </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Zen-of-fortran-talk</h1>
-      <h2 class="project-tagline">a path to discover Modern Fortran, a poor, informal talk for newbies Fortraners</h2>
-      <a href="https://github.com/szaghi/zen-of-fortran-talk" class="btn">View on GitHub</a>
-      <a href="https://github.com/szaghi/zen-of-fortran-talk/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/szaghi/zen-of-fortran-talk/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+  <body onload="resetCountdown(360);" class="impress-not-supported">
+    <div id="impress">
+      <div data-scale="10" subsectionnumber="1" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-0" data-y="0" data-x="9090.0" data-z="0" subsectiontitle="A short intro" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div class="slide-content">
+          <div style="border-top-left-radius:0%;
+  border-top-right-radius:100px;
+  border-bottom-right-radius:0px;
+  width:100%;
+  margin-left:0%;
+  margin-top:0%;
+  height:30%;
+  background:rgba(88, 110, 117, 0.3);" id="box-1">
+            <div style="width:95%;text-align:center;" class="box-content">
+              <span style="
+  display:block;
+  font-size:240%;
+  padding-top:3%;
+  padding-bottom:2%;
+  padding-right:2%;
+" class="metadata">ZEN of Fortran</span>
+              <span style="
+  display:block;
+  font-size:200%;
+  padding-top:2%;
+  padding-bottom:3%;
+  padding-right:2%;" class="metadata">a Path to discover Modern Fortran</span>
+            </div>
+          </div>
+          <div style="width:100%;margin-top:3%;" id="box-2">
+            <div style="text-align:left;padding-left:1%;" class="box-content">a presentation by <span style="display:block;font-size:110%;color:#d75f00;" class="metadata">Stefano Zaghi</span><p></p><span style="display:block;font-size:80%;padding-right:2%;color:#859900;" class="metadata">stefano.zaghi@gmail.it</span><p></p><span style="display:block;font-size:100%;" class="metadata">CNR-INSEAN, Marine Technology Research Institute</span></div>
+          </div>
+          <div style="width:100%;margin-top:3%;" id="box-3">
+            <div style="text-align:left;padding-left:1%;color:#af8700;" class="box-content">
+              <p>Disclaimer</p>
+              <pre>
+                <code>this is an informal talk by a poor Fortraner, do not aspect to learn a lot,
+</code>
+              </pre>
+              <pre>
+                <code>probably you already know more Fortran than me...
+</code>
+              </pre>
+            </div>
+          </div>
+          <div style="width:100%;margin-top:1%;" id="box-4">
+            <div style="text-align:left;padding-left:1%;padding-right:20%;" class="box-content">This talk is designed for a heterogeneous class, mixing newbies and experienced programmers</div>
+          </div>
+          <div style="width:100%;padding-top:2%;" id="box-5">
+            <div style="text-align:left;padding-left:1%;" class="box-content">
+              <span style="display:block;font-size:80%;" class="metadata">CNR-INSEAN, Via di Vallerano 139, 00128, Roma</span>
+              <span style="display:block;font-size:80%;padding-right:10%;" class="metadata">to be fixed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="1" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-1" data-y="0" data-x="18270.0" data-z="0" subsectiontitle="A short intro" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection-emph">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">A short intro</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">1</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="1" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-2" data-y="0" data-x="19350.0" data-z="0" subsectiontitle="A short intro" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Why Fortran?</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-1" class="note">
+            <div class="note-caption">Fortran is <strong>NOT</strong> a legacy language!</div>
+            <div style="font-size:140%;" class="note-content">
+              <ul>
+                <li>Fortran is the <strong>BEST</strong> general-purpose programming language for <strong>SCIENTIFIC COMPUTING</strong>:<ul><li>near the best perfomance with easy;</li><li>the best <strong>ARRAYS HANDLING</strong> you will ever see;</li><li><strong>HPC</strong> ready;</li><li>near all the math functions you will ever want built-in the language;</li></ul></li>
+                <li>the first high-level language to be <strong>STANDARDIZED</strong>;</li>
+              </ul>
+            </div>
+          </div>
+          <div id="note-2" class="note">
+            <div class="note-caption">Belive me&hellip;</div>
+            <div style="font-size:140%;" class="note-content">Matlab is a <strong>TOY</strong> compared to Fortran!</div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">A short intro</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">2</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="1" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-3" data-y="0" data-x="20430.0" data-z="0" subsectiontitle="A short intro" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Once upon a time...</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <p>Fortran was originally developed by IBM (the <strong>FOR</strong>mula <strong>TRAN</strong>slating system) in the mid of 50&rsquo;</p>
+          <ul>
+            <li>FORTRAN, first released by IBM in 1956</li>
+            <li>FORTRAN II, released by IBM in 1958</li>
+            <li>FORTRAN IV, released in 1962, standardized</li>
+            <li>FORTRAN 66, appeared in 1966 as an ANSI standard</li>
+            <li>FORTRAN 77, appeared in 1977, structured features</li>
+            <li>Fortran 90, 1992 ANSI standard, free form, modules</li>
+            <li>Fortran 95, a few extensions</li>
+            <li>Fortran 2003, object oriented programming</li>
+            <li>Fortran 2008, a few extensions</li>
+            <li>Fortran 2015, incoming standard, mainly parallel features</li>
+          </ul>
+          <div id="note-3" class="note">
+            <div class="note-caption">Fortran is not dead, it is worth to learn it!</div>
+            <div style="font-size:110%;" class="note-content">
+              <p>Three main reasons to learn Fortran:</p>
+              <ol>
+                <li>it is a de-facto standard in scientific computing;</li>
+                <li>there are tons of codes for doing anything;</li>
+                <li>it has a brilliant future.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">A short intro</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">3</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="1" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-4" data-y="0" data-x="21510.0" data-z="0" subsectiontitle="A short intro" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">So many Fortran flavors...</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-4" class="note">
+            <div class="note-caption">which one I should use?</div>
+            <div style="font-size:130%;" class="note-content">Obviously, the last one!</div>
+          </div>
+          <ul>
+            <li>free-format source code;</li>
+            <li>names can consists of up to 31 characters;</li>
+            <li>dynamic memory handling:<ul><li>ability to operate on arrays (or array sections) as a whole;</li></ul></li>
+            <li>sane programming style:<ul><li>generic names;</li><li>optional arguments and calls with keywords;</li><li>operator overloading;</li></ul></li>
+            <li>recursive, pure and elemental procedures;</li>
+            <li>derived types:<ul><li>Object Oriented Programming.</li></ul></li>
+          </ul>
+          <div id="note-5" class="note">
+            <div class="note-caption">Modern Fortran compilers are backwards compatible!</div>
+            <div style="font-size:130%;" class="note-content">Develop new codes in Modern Fortran mixing-in old legacy codes is effortless!</div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">A short intro</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">4</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="2" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-5" data-y="0" data-x="22590.0" data-z="0" subsectiontitle="The Basics" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection-emph">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">The Basics</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">5</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="2" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-6" data-y="0" data-x="23670.0" data-z="0" subsectiontitle="The Basics" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Sources Format</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-6" class="note">
+            <div class="note-caption">Use Free Format!</div>
+            <div style="font-size:110%;" class="note-content">
+              <ul>
+                <li>ASCII text up to 132 columns;</li>
+                <li>case insensitive i.e. <code>PROGRAM</code> is the same as <code>ProGram</code>;</li>
+                <li>using mixed case for statements and variables is not considered a good programming practice; be considerate to your collaborators who will be modifying the code.</li>
+                <li>use whatever convention you are comfortable&hellip;</li>
+                <li>&hellip; but <strong>ADOPT</strong> a convention! Do not code <strong>as it comes</strong>;</li>
+                <li>be consistent with your convention throughout.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="columns">
+            <div style="display:block;float:left;width:45%" class="column" column-number="1">
+              <div id="note-7" class="note">
+                <div class="note-caption">Bad practice</div>
+                <div style="font-size:90%;" class="note-content">
+                  <pre>
+                    <code class="fortran">program My_bAD
+  integer :: NabCD
+     parameter :: naBcd = 10
+character(nabcD) :: abc = 'hello'
+print*, ABC
+program MY_bad
+</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div style="display:block;float:left;width:50%" class="column" column-number="2">
+              <div id="note-8" class="note">
+                <div class="note-caption">Good practice</div>
+                <div style="font-size:90%;" class="note-content">
+                  <pre>
+                    <code class="fortran">program my_good
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+  integer, parameter      :: chars_number=10
+  character(chars_number) :: greetings='hello'
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+  print '(A)', trim(greetings)
+program my_good
+</code>
+                  </pre>
+                </div>
+                <p></div>
+              </div>
+            </div>
+          </p>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">The Basics</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">6</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="2" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-7" data-y="0" data-x="24750.0" data-z="0" subsectiontitle="The Basics" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Fortran Program Units</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-9" class="note">
+            <div class="note-caption">(Dis)Sectioning a Fortran Program</div>
+            <div style="font-size:130%;" class="note-content">A Fortran program consists of one or more <strong>PROGRAM UNITS</strong></div>
+          </div>
+          <div class="columns">
+            <div style="display:block;float:left;width:30%" class="column" column-number="1">
+              <pre>
+                <code class="fortran">program
+...
+end program
+</code>
+              </pre>
+              <pre>
+                <code class="fortran">module
+...
+end module
+</code>
+              </pre>
+              <pre>
+                <code class="fortran">subroutine
+...
+end subroutine
+</code>
+              </pre>
+              <pre>
+                <code class="fortran">function
+...
+end function
+</code>
+              </pre>
+            </div>
+            <div style="display:block;float:left;width:70%" class="column" column-number="2">
+              <ul>
+                <li>the <code>PROGRAM</code> unit is the main, there should be only one main unit;</li>
+                <li>the <code>PROGRAM</code> unit can contain one or more <strong>subprogram</strong> units such as <code>SUBROUTINE</code> or <code>FUNCTION</code>;</li>
+                <li>the subprogram units should be used to perform simple tasks: function or subroutine of more than 50/100 lines are bad designed!</li>
+                <li>the subprogram units related each other should be <strong>wrapped</strong> into a <code>MODULE</code>:<ul><li>be <strong>MODULAR</strong> should be an imperative for you!</li></ul></li>
+                <li>inside each program (sub)unit define <strong>data and operations on data</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">The Basics</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">7</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="2" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-8" data-y="0" data-x="25830.0" data-z="0" subsectiontitle="The Basics" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Hello World!</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-10" class="note">
+            <div class="note-caption">Your First Fortran Program</div>
+            <div style="font-size:100%;" class="note-content">
+              <pre>
+                <code class="fortran">program the_greeter
+print '(A)', 'Hello World!'
+end program the_greeter
+</code>
+              </pre>
+            </div>
+          </div>
+          <div id="note-11" class="note">
+            <div class="note-caption">Your First MODULAR Fortran Program</div>
+            <div style="font-size:100%;" class="note-content">
+              <pre>
+                <code class="fortran">module the_greeter_worker
+contains
+  subroutine say_something(what)
+  character(*), intent(in) :: what !&lt; What I have to say?
+  print '(A)', what
+  end subroutine say_something
+endmodule the_greeter_worker
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+program the_modular_greeter
+use the_greeter_worker
+call say_something(what='Hello modular World!')
+end program the_modular_greeter
+</code>
+              </pre>
+            </div>
+          </div>
+          <p>The standard Fortran file extension is <code>.f90</code> (for standard 90+), e.g. <code>the_greeter.f90</code></p>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">The Basics</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">8</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="2" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-9" data-y="0" data-x="26910.0" data-z="0" subsectiontitle="The Basics" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Compile Fortran</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-12" class="note">
+            <div class="note-caption">Fortran is a compiled language</div>
+            <div style="font-size:110%;" class="note-content">
+              <p>Building a Fortran application means to pass through 3 steps:</p>
+              <ol>
+                <li>write the sources;</li>
+                <li>generate the compiled objects;</li>
+                <li>link the executable.</li>
+              </ol>
+            </div>
+          </div>
+          <pre>
+            <code class="bash"># generate the_greeter.o compiled object
+gfortran -c the_greeter.f90
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+# generate the_greeter executable
+gfortran the_greeter.o -o the_greeter
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+# generate the_greeter executable in one command
+gfortran the_greeter.f90 -o the_greeter
+</code>
+          </pre>
+          <div id="note-13" class="note">
+            <div class="note-caption">Compilers</div>
+            <div style="font-size:70%;" class="note-content">
+              <p>The best Fortran compilers you will ever see are also FREE!</p>
+              <ol>
+                <li><a href="https://gcc.gnu.org/wiki/GFortran">GNU gfortran, https://gcc.gnu.org/wiki/GFortran</a>;</li>
+                <li><a href="https://software.intel.com/en-us/fortran-compilers">Intel Fortran, https://software.intel.com/en-us/fortran-compilers</a>, free for <strong>non commercial use</strong>;</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">The Basics</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">9</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-10" data-y="0" data-x="27990.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection-emph">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">10</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-11" data-y="0" data-x="29070.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-14" class="note">
+            <div class="note-caption">How to define data containers</div>
+            <div style="font-size:110%;" class="note-content">Fortran provides 5 fundamental, intrinsic data-types:</div>
+          </div>
+          <div class="columns">
+            <div style="display:block;float:left;width:50%" class="column" column-number="1">
+              <div id="note-15" class="note">
+                <div class="note-caption">INTEGERs</div>
+                <div style="font-size:90%;" class="note-content"><code>INTEGER</code>s are integer values, which can be represented exactly by the computer</div>
+              </div>
+              <div id="note-16" class="note">
+                <div class="note-caption">REALs</div>
+                <div style="font-size:90%;" class="note-content"><code>REAL</code>s are floating point numbers, representing real numbers; they are not exact representations of real numbers, having only a finite number of decimal places, the <strong>FINITE PRECISION</strong> issue</div>
+              </div>
+            </div>
+            <div style="display:block;float:left;width:50%" class="column" column-number="2">
+              <div id="note-17" class="note">
+                <div class="note-caption">CHARACTERs</div>
+                <div style="font-size:90%;" class="note-content"><code>CHARACTER</code>s are text characters, usually encoded as ASCII</div>
+              </div>
+              <div id="note-18" class="note">
+                <div class="note-caption">LOGICALs</div>
+                <div style="font-size:90%;" class="note-content"><code>LOGICAL</code>s are boolean variables, which can store a value of either <code>.TRUE.</code> or <code>.FALSE.</code></div>
+              </div>
+            </div>
+          </div>
+          <div id="note-19" class="note">
+            <div class="note-caption">COMPLEX</div>
+            <div style="font-size:90%;" class="note-content"><code>COMPLEX</code> variables are effectively just two real variables, one storing the real component of a number, the other storing the imaginary component</div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">11</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-12" data-y="0" data-x="30150.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Explicit and Implicit Typing</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-20" class="note">
+            <div class="note-caption">The BAD coming from the past&hellip;</div>
+            <div style="font-size:90%;" class="note-content">
+              <p>Fortran is capable of implicit typing of variables, i.e. variables obtain a type on the basis of <strong>ITS FIRST CHARCTER</strong>&hellip; a nightmare!</p>
+              <pre>
+                <code>|ABCDEFGH|IJKLMN |OPQRSTUVWXYZ|
+|________|_______|____________|
+| real   |integer| real       |
+</code>
+              </pre>
+            </div>
+          </div>
+          <div id="note-21" class="note">
+            <div class="note-caption">Explicit is <strong>BETTER</strong> than implicit!</div>
+            <div style="font-size:90%;" class="note-content">For backward compatibility reasons, Fortran default is <strong>IMPLICIT</strong>&hellip; always start program units with the statement <code>implicit none</code> to disable the default implicity</div>
+          </div>
+          <div class="columns">
+            <div style="display:block;float:left;width:33%" class="column" column-number="1">
+              <pre>
+                <code class="fortran">program explicit
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+implicit none
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+end program explicit
+</code>
+              </pre>
+            </div>
+            <div style="display:block;float:left;width:33%" class="column" column-number="2">
+              <pre>
+                <code class="fortran">module explicit
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+implicit none
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+end module explicit
+</code>
+              </pre>
+            </div>
+            <div style="display:block;float:left;width:33%" class="column" column-number="3">
+              <pre>
+                <code class="fortran">subroutine explicit
+! if not contained into
+! a program/module with
+! &quot;implicit none&quot;
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+implicit none
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/szaghi/zen-of-fortran-talk">Zen-of-fortran-talk</a> is maintained by <a href="https://github.com/szaghi">szaghi</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+end subroutine explicit
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">12</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-13" data-y="0" data-x="31230.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Define a variable</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div id="note-22" class="note">
+            <div class="note-caption">Explicit declare all variables</div>
+            <div style="font-size:100%;" class="note-content">
+              <pre>
+                <code class="fortran">TYPE[, attributes] [::] variable
+</code>
+              </pre>
+              <p>where <code>TYPE</code> is an intrinsic type (or a derived one not yet seen), <code>attributes</code> are optional attributes of the variable declaration and <code>variables</code> is the, obviously, the variable name. The double semicolon <code>::</code> are optional, but highly recommended!</p>
+            </div>
+          </div>
+          <div id="note-23" class="note">
+            <div class="note-caption">Initialize Variable at its declaration</div>
+            <div style="font-size:100%;" class="note-content"><p>It is possible and highly recommended to assign and initial value to all variables. It could be very helpful, to initialize them into their definition</p><pre><code class="fortran">integer, parameter :: cars_number=100
+</code></pre></p><p>The assignment on definition is <strong>NOT ALWAYS POSSIBLE</strong>, neither <strong>DESIRABLE</strong>.</div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">13</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-14" data-y="0" data-x="32310.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Constants</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="width:100%" id="note-24">
+            <div class="note-caption">Constants types</div>
+            <div style="font-size:100%;" class="note-content">
+              <p>Constants are classified into two categories:</p>
+              <ul>
+                <li><strong>literal</strong> constants that have not a name;</li>
+                <li><strong>named</strong> constants that have obviously a name.</li>
+              </ul>
+            </div>
+          </div>
+          <div id="note-25" class="note">
+            <div class="note-caption">Literal Constants</div>
+            <div style="font-size:80%;" class="note-content">
+              <pre>
+                <code class="fortran">100
+3.14159265
+'Hello World!'
+-3.134324390984353454e23 ! subtle mistakes...
+</code>
+              </pre>
+              <p>Avoid to use literal constants: <strong>MAGIC NUMBERS</strong> are not clear!</p>
+            </div>
+          </div>
+          <div id="note-26" class="note">
+            <div class="note-caption">Named Constants</div>
+            <div style="font-size:80%;" class="note-content">
+              <pre>
+                <code class="fortran">integer,       parameter :: cars_number=100
+real,          parameter :: pi=3.14159265
+character(12), parameter :: greetings='Hello World!'
+real,          parameter :: wrong=-3.134324390984353454e23 ! subtle mistakes...
+</code>
+              </pre>
+              <p>The <code>PARAMETER</code> attribute is your <strong>CONSTANT</strong> friend!</p>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">14</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-15" data-y="0" data-x="33390.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Arrays</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">15</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-16" data-y="0" data-x="34470.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Kinds</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">16</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-17" data-y="0" data-x="35550.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Operators</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">17</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="3" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-18" data-y="0" data-x="36630.0" data-z="0" subsectiontitle="Intrinsic types" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Statements</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic types</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">18</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="4" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-19" data-y="0" data-x="37710.0" data-z="0" subsectiontitle="Intrinsic Functions" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection-emph">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic Functions</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">19</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="4" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-20" data-y="0" data-x="38790.0" data-z="0" subsectiontitle="Intrinsic Functions" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic Functions</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Intrinsic Functions</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">20</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="5" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-21" data-y="0" data-x="39870.0" data-z="0" subsectiontitle="Control Flows" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection-emph">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Control Flows</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">21</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="5" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-22" data-y="0" data-x="40950.0" data-z="0" subsectiontitle="Control Flows" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Conditionals</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Control Flows</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">22</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="5" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-23" data-y="0" data-x="42030.0" data-z="0" subsectiontitle="Control Flows" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Loops</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Control Flows</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">23</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="5" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-24" data-y="0" data-x="43110.0" data-z="0" subsectiontitle="Control Flows" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Switches</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Control Flows</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">24</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="6" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-25" data-y="0" data-x="44190.0" data-z="0" subsectiontitle="Input &amp; Output" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section-emph">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection-emph">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Input & Output</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">25</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="6" sectiontitle="Fortran for newbies" chapternumber="1" id="slide-26" data-y="0" data-x="45270.0" data-z="0" subsectiontitle="Input &amp; Output" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="1" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Input & Output</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Fortran for newbies</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Input & Output</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">26</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="7" sectiontitle="Modern Fortran" chapternumber="1" id="slide-27" data-y="0" data-x="46350.0" data-z="0" subsectiontitle="Recent Standards" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="2" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section-emph">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection-emph">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Modern Fortran</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Recent Standards</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">27</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="7" sectiontitle="Modern Fortran" chapternumber="1" id="slide-28" data-y="0" data-x="47430.0" data-z="0" subsectiontitle="Recent Standards" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="2" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Fortran 2003, the most exciting features</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Modern Fortran</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Recent Standards</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">28</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="7" sectiontitle="Modern Fortran" chapternumber="1" id="slide-29" data-y="0" data-x="48510.0" data-z="0" subsectiontitle="Recent Standards" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="2" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Fortran 2008, the most exciting features</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Modern Fortran</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Recent Standards</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">29</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="7" sectiontitle="Modern Fortran" chapternumber="1" id="slide-30" data-y="0" data-x="49590.0" data-z="0" subsectiontitle="Recent Standards" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="2" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Fortran 2015, the incoming standard</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">Modern Fortran</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Recent Standards</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">30</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="8" sectiontitle="The OOP Way to Computer Science" chapternumber="1" id="slide-31" data-y="0" data-x="50670.0" data-z="0" subsectiontitle="OOP Paradigm" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="3" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section-emph">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection-emph">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">The OOP Way to Computer Science</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">OOP Paradigm</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">31</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="8" sectiontitle="The OOP Way to Computer Science" chapternumber="1" id="slide-32" data-y="0" data-x="51750.0" data-z="0" subsectiontitle="OOP Paradigm" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="3" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Think to objects</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">The OOP Way to Computer Science</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">OOP Paradigm</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">32</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="8" sectiontitle="The OOP Way to Computer Science" chapternumber="1" id="slide-33" data-y="0" data-x="52830.0" data-z="0" subsectiontitle="OOP Paradigm" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="3" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">A case of study: ODE integration</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content"></div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">The OOP Way to Computer Science</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">OOP Paradigm</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">33</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="9" sectiontitle="The OOP Way to Computer Science" chapternumber="1" id="slide-34" data-y="0" data-x="53910.0" data-z="0" subsectiontitle="References" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="3" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">Table of Contents</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="depth:3" class="toc">
+            <a href="#slide-1"></a>
+            <a href="#slide-1">
+              <span class="toc-section">1 Fortran for newbies</span>
+            </a>
+            <a href="#slide-1">
+              <span class="toc-subsection">  1.1 A short intro</span>
+            </a>
+            <a href="#slide-6">
+              <span class="toc-subsection">  1.2 The Basics</span>
+            </a>
+            <a href="#slide-11">
+              <span class="toc-subsection">  1.3 Intrinsic types</span>
+            </a>
+            <a href="#slide-20">
+              <span class="toc-subsection">  1.4 Intrinsic Functions</span>
+            </a>
+            <a href="#slide-22">
+              <span class="toc-subsection">  1.5 Control Flows</span>
+            </a>
+            <a href="#slide-26">
+              <span class="toc-subsection">  1.6 Input &amp; Output</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-section">2 Modern Fortran</span>
+            </a>
+            <a href="#slide-28">
+              <span class="toc-subsection">  2.1 Recent Standards</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-section-emph">3 The OOP Way to Computer Science</span>
+            </a>
+            <a href="#slide-32">
+              <span class="toc-subsection">  3.1 OOP Paradigm</span>
+            </a>
+            <a href="#slide-35">
+              <span class="toc-subsection-emph">  3.2 References</span>
+            </a>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">The OOP Way to Computer Science</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">References</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">34</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+      <div data-scale="1" subsectionnumber="9" sectiontitle="The OOP Way to Computer Science" chapternumber="1" id="slide-35" data-y="0" data-x="54990.0" data-z="0" subsectiontitle="References" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" sectionnumber="3" class="step slide" chaptertitle="">
+        <div style="clear: both;"></div>
+        <div class="slide-header-1">
+          <span style="padding:0% 1%;font-size:150%;float:left;font-variant:small-caps;color:#859900;" class="metadata">References</span>
+          <span style="padding:0% 0% 0% 1%;font-size:100%;float:right;font-variant:small-caps;color:#d75f00;" class="metadata">S. Zaghi</span>
+          <span style="padding:0% 0% 0% 1%;value: by ;float:right;color:#ffffd7;font-size:90%;" class="metadata"> by </span>
+          <span style="font-size:110%;float:right;font-variant:small-caps;" class="metadata">ZEN of Fortran</span>
+        </div>
+        <div class="slide-content">
+          <div style="width:100%" id="note-27">
+            <div class="note-caption">Online resources</div>
+            <div style="font-size:90%" class="note-content">
+              <ul>
+                <li>
+                  <a href="https://github.com/szaghi/zen-of-fortran">My ZEN of Fortran, https://github.com/szaghi/zen-of-fortran</a>
+                </li>
+                <li>
+                  <a href="https://github.com/alexpacheco/fortran">Alex Pacheco, Modern Fortran Programming I &amp; II, https://github.com/alexpacheco/fortran</a>
+                </li>
+                <li>
+                  <a href="https://cmacmackin.github.io/pages/fortran-tutorial.html">Chris MacMackin, Fortran Tutoriali, https://cmacmackin.github.io/pages/fortran-tutorial.html</a>
+                </li>
+                <li><a href="http://www.fortran90.org/src/best-practices.html">Certik&rsquo;s Fortran best practices, http://www.fortran90.org/src/best-practices.html</a>.</li>
+                <li>
+                  <a href="http://www.fortran.com/Fortran_Style.pdf">The Fortran Company Styles Guidelines, http://www.fortran.com/Fortran_Style.pdf</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div style="width:100%" id="note-28">
+            <div class="note-caption">Books</div>
+            <div style="font-size:90%" class="note-content">
+              <ul>
+                <li>
+                  <a href="http://www.amazon.com/Modern-Fortran-Norman-S-Clerman/dp/052173052X">Modern Fortran: Style and Usage, N.S. Clerman, W. Spector</a>
+                </li>
+                <li>
+                  <a href="http://www.amazon.com/Explained-Numerical-Mathematics-Scientific-Computation/dp/0199601429">Modern Fortran Explained, Metcalf, Reid, and Cohen</a>
+                </li>
+                <li>
+                  <a href="http://www.cambridge.org/gb/academic/subjects/computer-science/scientific-computing-scientific-software/modern-fortran-practice">Modern Fortran in Practice, Arjen Markus</a>
+                </li>
+                <li>
+                  <a href="http://www.amazon.com/Scientific-Software-Design-The-Object-Oriented/dp/0521888131">Scientific Software Design - The Object-Oriented Way, Rouson, Xia, and Xu</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="slide-footer-1">
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;" class="metadata">The OOP Way to Computer Science</span>
+          <span style="value: | ;float:left;padding:0.5%;color:#d75f00;" class="metadata"> | </span>
+          <span style="padding:0% 1% 2% 1%;font-size:110%;float:left;font-variant:small-caps;color:#859900;" class="metadata">References</span>
+          <span style="float:right;padding:0 1%;color:#d75f00;" class="metadata">36</span>
+          <span style="value: of ;float:right;" class="metadata"> of </span>
+          <span style="float:right;padding:0 1%;color:#ffffd7;" class="metadata">35</span>
+          <span style="value:slide ;float:right;color:#859900;" class="metadata">slide </span>
+        </div>
+      </div>
+    </div>
+    <script src="js/countDown.js"></script>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+    <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+              inlineMath: [ ['$','$'] ],
+              displayMath: [ ['$$','$$'] ],
+              processEscapes: true
+            },
+            "HTML-CSS": { availableFonts: ["Neo-Euler"] }
+          });
+        </script>
+    <script src="js/MathJax/MathJax.js" type="text/javascript"></script>
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
