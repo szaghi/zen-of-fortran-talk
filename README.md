@@ -10,9 +10,9 @@ This is an informal talk by a poor Fortraner, do not aspect to learn a lot, prob
 
 ### The Talk
 
-The HTML rendered talk is available at the GH pages of this repository [ZEN of Fotran Talk, ]()
+The HTML rendered talk is available at the GH pages of this repository [ZEN of Fotran Talk, ](http://szaghi.github.io/zen-of-fortran-talk/index.html#/slide-0).
 
-The Talk is made by means of [MaTiSSe](), the sources are contained into the `src/` subdirectory of this repository.
+The Talk is made by means of [MaTiSSe](https://github.com/szaghi/MaTiSSe), the sources are contained into the `src/` subdirectory of this repository.
 
 To obtain the Talk sources clone this repository:
 
