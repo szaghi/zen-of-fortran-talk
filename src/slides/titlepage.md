@@ -59,7 +59,7 @@ Disclaimer
 this is an informal talk by a poor Fortraner, do not aspect to learn a lot,
 ```
 ```
-probably you know already more Fortran than me...
+probably you already know more Fortran than me...
 ```
 
 }
