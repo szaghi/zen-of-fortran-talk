@@ -1,6 +1,7 @@
 ---
 theme:
   - toc:
+    - font-size: '95%'
     - font-variant: 'small-caps'
     - section-emph:
       - border: '1px solid #4788B3'

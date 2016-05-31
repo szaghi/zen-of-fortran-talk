@@ -18,7 +18,7 @@ metadata:
   - toc_depth: 4
   - dirs_to_copy:
     - css
-  #   - figures
+    - images
   #   - videos
   - css_overtheme:
     - css/table.css

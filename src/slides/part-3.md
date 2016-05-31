@@ -2,6 +2,24 @@
 
 ### OOP Paradigm
 
-#### Think to objects
+#### OOP Paradigm
+
+### Encapsulation
+
+#### Encapsulation
+
+### Inheritance
+
+#### Inheritance
+
+### Polymorphism
+
+#### Polymorphism
+
+### Abstraction
+
+#### Abstraction
+
+### A case of study: ODE integration
 
 #### A case of study: ODE integration

@@ -10,6 +10,8 @@ $include(slides/part-2.md)
 
 $include(slides/part-3.md)
 
+## References
+
 ### References
 
 #### References
