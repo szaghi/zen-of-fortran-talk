@@ -456,6 +456,201 @@ $endcolumns
 
 #### Generic Names
 
+$note
+$style[width:100%]
+$caption(none){The Problem}
+$content[font-size:80%;]{
+Apply the same PROCEDURE to different arguments (for type, kind and or rank), e.g. convert **number to string**
+```fortran
+integer :: step_number
+real    :: time
+real    :: delta
+integer :: unit
+integer :: t
+delta = 0.1
+time  = 0.0
+do t=1, 100
+  time = time + delta
+  open(newunit=unit, file='clock-'//string(t)//'.dat')
+  write(unit, "(A)")'current time: '//string(time)
+  close(unit)
+enddo
+```
+Say, you want the `STRING` function to accept both the integer `t` and the real `time`, in the same of the many built-ins like `cos, sin, etc...` You can develop a `STRING_INTEGER, STRING_REAL`, but if you need to accept also different kinds? You then need a `STRING_INTEGER_8, STRING_INTEGER_16, STRING_INTEGER_32...` and you need a different call for each argument type/kind/rank,
+
+```fortran
+... file='clock-'//string_integer_32(t)//'.dat')
+... 'current time: '//string_real_32(time)
+```
+Too much ERROR PRONE!
+}
+$endnote
+
+#### Generic Names
+$columns
+
+$column[width:55%]
+$note
+$style[width:100%]
+$caption(none){The Solution}
+$content[font-size:85%;]{
+**Generic Names** avoid the *plethora* of different names exploiting *dynamic dispatching* at compile-time (no penalty!)
+```fortran
+module generic
+implicit none
+private
+public :: string
+interface string
+  module procedure string_integer, string_real
+endinterface
+contains
+  elemental function string_integer(n) result(str)
+  integer, intent(in) :: n
+  character(11)       :: str
+  write(str, '(I11)') n
+  end function string_integer
+  elemental function string_real(n) result(str)
+  real, intent(in) :: n
+  character(13)    :: str
+  write(str, '(E13.6E2)') n
+  end function string_real
+end module generic
+```
+Very **CONCISE, CLEAR and ROBUST**
+}
+$endnote
+$column[width:45%]
+$note
+$style[width:100%]
+$caption(none){}
+$content[font-size:80%;]{
+```fortran
+use generic
+integer :: step_number
+real    :: time
+real    :: delta
+integer :: unit
+integer :: t
+delta = 0.1
+time  = 0.0
+do t=1, 100
+  time = time + delta
+  open(newunit=unit, &
+    file='clock-'//string(t)//'.dat')
+  write(unit, "(A)") &
+    'current time: '//string(time)
+  close(unit)
+enddo
+```
+}
+$endnote
+
+$note
+$style[width:100%]
+$caption(none){PENF, a concrete application}
+$content[font-size:100%;]{
+Portability Environment for Fortran poor people
+
+A KISS library for exploiting codes portability for modern (2003+) Fortran projects
+
+[https://github.com/szaghi/PENF](https://github.com/szaghi/PENF)
+}
+$endnote
+
+$endcolumns
+
 ### Operators Overloading
 
 #### Operators Overloading
+
+$note
+$style[width:100%]
+$caption(none){The Problem}
+$content[font-size:100%;]{
+Create an **algebra** for your new shining type, e.g. for your vector class
+```fortran
+type, public :: Vector
+  real :: x = 0.0 ! Cartesian component in x direction.
+  real :: y = 0.0 ! Cartesian component in y direction.
+  real :: z = 0.0 ! Cartesian component in z direction.
+end type Vector
+```
+It would be fantastic to be able to do **VECTORIAL COMPUTATION**... isn't it?
+```fortran
+type(vector) :: vector1
+type(vector) :: vector2
+type(vector) :: vector3
+...
+vector3 = vector1 + vector2
+vector3 = vector1 - vector2
+vector3 = 2.0*vector1 + vector2
+vector3 = vector1 - 1.4
+vector3 = vector1.cross.vector2
+vector3 = vector1.dot.vector2
+```
+Well, you can! Exploit **OPERATORS OVERLOADING** (without penalties!)
+}
+$endnote
+
+#### Operators Overloading
+
+$columns
+
+$column[width:55%]
+
+$note
+$style[width:100%]
+$caption(none){The Solution}
+$content[font-size:70%;]{
+```fortran
+module vector_t
+implicit none
+private
+public :: vector, operator (+), operator(.cross.)
+type, public :: Vector
+  real :: x = 0.0 ! Cartesian component in x direction.
+  real :: y = 0.0 ! Cartesian component in y direction.
+  real :: z = 0.0 ! Cartesian component in z direction.
+end type Vector
+interface operator (+)
+  module procedure add
+end interface
+interface operator (.cross.)
+  module procedure crossproduct
+end interface
+contains
+  elemental function add(left, rigth) result(summ)
+  type(Vector), intent(in) :: left
+  type(Vector), intent(in) :: rigth
+  type(Vector)             :: summ
+  summ%x = left%x + rigth%x
+  summ%y = left%y + rigth%y
+  summ%z = left%z + rigth%z
+  end function add
+  elemental function crossproduct(vec1, vec2) result(cross)
+  type(Vector), intent(in) :: vec1
+  type(Vector), intent(in) :: vec2
+  type(Vector)             :: cross
+  cross%x = (vec1%y * vec2%z) - (vec1%z * vec2%y)
+  cross%y = (vec1%z * vec2%x) - (vec1%x * vec2%z)
+  cross%z = (vec1%x * vec2%y) - (vec1%y * vec2%x)
+  end function crossproduct
+end module vector_t
+```
+}
+$endnote
+
+$column[width:45%]
+
+$note
+$style[width:100%]
+$caption(none){VecFor, a concrete application}
+$content[font-size:100%;]{
+Vector algebra class for Fortran poor people
+
+A KISS pure Fortran OOD class for computing Vectorial (3D) algebra
+
+[https://github.com/szaghi/VecFor](https://github.com/szaghi/VecFor)
+}
+$endnote
+$endcolumns
