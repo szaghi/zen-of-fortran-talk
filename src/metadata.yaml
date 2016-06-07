@@ -19,9 +19,8 @@ metadata:
   - dirs_to_copy:
     - css
     - images
-  #   - videos
   - css_overtheme:
     - css/table.css
     - css/code.css
-  #   - css/figure_zoom.css
+    - css/figure_zoom.css
 ---

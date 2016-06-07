@@ -6,7 +6,7 @@
 
 $note
 $caption(none){Modern Style}
-$content[font-size:120%;]{
+$content[font-size:110%;]{
 + free format
 + attributes
 + implicit none
@@ -16,7 +16,7 @@ $endnote
 
 $note
 $caption(none){Fixing the flaws}
-$content[font-size:120%;]{
+$content[font-size:110%;]{
 + allocatable arrays
 + derived types
 }
@@ -24,7 +24,7 @@ $endnote
 
 $note
 $caption(none){Module-oriented Programming}
-$content[font-size:120%;]{
+$content[font-size:110%;]{
 + internal subprograms
 + private, public, protected
 + contains
@@ -36,7 +36,7 @@ $endnote
 
 $note
 $caption(none){Formula translation}
-$content[font-size:120%;]{
+$content[font-size:110%;]{
 + array syntax, where statement
 + extended & user-defined operators
 }
@@ -44,7 +44,7 @@ $endnote
 
 $note
 $caption(none){Odds}
-$content[font-size:120%;]{
+$content[font-size:110%;]{
 + fortran pointers
 + command line arguments
 + environment variables

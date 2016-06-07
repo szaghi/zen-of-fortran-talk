@@ -38,3 +38,13 @@ $content[font-size:90%]{
 + [Scientific Software Design - The Object-Oriented Way, Rouson, Xia, and Xu](http://www.amazon.com/Scientific-Software-Design-The-Object-Oriented/dp/0521888131)
 }
 $endnote
+
+$note
+$style[width:100%]
+$caption(none){For Curious}
+$content[font-size:90%]{
++ [Fortran WIKI, http://fortranwiki.org](http://fortranwiki.org)
++ [Fortran F/OSS programmers group, https://github.com/Fortran-FOSS-Programmers](https://github.com/Fortran-FOSS-Programmers)
++ [me, https://github.com/szaghi?tab=repositories](https://github.com/szaghi?tab=repositories)
+}
+$endnote
