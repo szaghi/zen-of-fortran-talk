@@ -1,20 +1,26 @@
 ---
 theme:
   - toc:
-    - font-size: '95%'
+    - display: 'inline-block'
+    - -moz-column-count: '2'
+    - -moz-column-gap: '3%'
+    - -webkit-column-count: '2'
+    - -webkit-column-gap: '3%'
+    - text-align: 'justify'
+    - font-size: '100%'
     - font-variant: 'small-caps'
     - section-emph:
       - border: '1px solid #4788B3'
       - border-radius: '5px'
       - border-color: '#859900'
       - font-weight: 'bold'
-      - font-size: '130%'
+      - font-size: '110%'
     - subsection-emph:
       - border: '1px solid #4788B3'
       - border-radius: '5px'
       - border-color: '#d75f00'
       - font-weight: 'bold'
-      - font-size: '130%'
+      - font-size: '110%'
   - canvas:
     - background: 'radial-gradient(rgb(88, 110, 117), rgb(0, 43, 54))'
   - ordered-list-items:
