@@ -11,18 +11,18 @@ $content[font-size:82%;]{
 As poor Fortran people we are used to simply **translate formula**, we do not care about **paradigms**...
 What Paradigm is the following?
 ```fortran
-subroutine shock(un_m,p_m,a_m,un_k,cdp,g14,dg1,gp1,gm1,segno,a,p,dp,M)
-  real, intent(in)  :: un_m,p_m,a_m,un_k,cdp,g14,dg1,gp1,gm1,segno
-  real, intent(out) :: a,p,dp,M
-  real              :: app,Mq
-  app = g14 * segno * (un_k - un_m)/a_m
-  M = app + dsqrt(1._8 + app * app)
-  Mq = M * M
-  app = 1._8 + dg1 * (Mq - 1._8)
-  p = p_m * app
-  dp = cdp * M * Mq/(1._8 + Mq)
-  a = a_m * dsqrt((gp1 + gm1 * app)/(gp1 + gm1 / app))
-end subroutine shock
+subroutine solr(toll,Qm,gamma1,a1,u1,p1,rho1,gamma4,a4,u4,p4,rho4,u,p,a,fF)
+  real*8 a2,p2,rho2,a3,p3,rho3,ps,us
+  real*8 pn,pn_1
+  real*8 a,u,p
+  real*8 w1,w4,toll,Qm
+  real*8 delta,gamma,gm1
+  ...
+  gm1=gamma-1.d0
+  delta=gm1/2.d0
+  alfa=(p1/p4)**(gm1/(2.d0*gamma))
+  beta=alfa*delta/a1+delta/a4
+  ...
 ```
 Aside to be very ugly, the above example shows that data is **HIGHLY DECOUPLED**. This is typical of **PROCEDURAL PROGRAMMING** paradigm
 
