@@ -136,7 +136,7 @@ $content[font-size:100%;]{
 Old-fashioned Fortran **library**
 ```fortran
 subroutine foo(arg1, arg2, arg3)
-real    :: arg1, agr2(*), arg3
+real    :: arg1, arg2(*), arg3
 integer :: i
 ! GOD is real...
 god = sum(arg2)
@@ -167,7 +167,7 @@ public :: foo
 contains
   pure subroutine foo(arg1, arg2, arg3)
     real, intent(in)  :: arg1
-    real, intent(in)  :: agr2(*)
+    real, intent(in)  :: arg2(*)
     real, intent(out) :: arg3
     real              :: god
     integer           :: i
@@ -344,7 +344,7 @@ real, allocatable :: volumes(:,:,:)
 
 call compute_metrics(Ni, Nj, Nk,    &
                      centers,nodes, &
-                     normals, fases &
+                     normals, faces &
                      volumes)
 ```
 }
@@ -411,7 +411,7 @@ use globals
 implicit none
 call compute_metrics(Ni, Nj, Nk,    &
                      centers,nodes, &
-                     normals, fases &
+                     normals, faces &
                      volumes)
 end program bad
 ```
@@ -502,7 +502,7 @@ private
 public :: string
 interface string
   module procedure string_integer, string_real
-endinterface
+end interface
 contains
   elemental function string_integer(n) result(str)
   integer, intent(in) :: n
@@ -619,13 +619,13 @@ interface operator (.cross.)
   module procedure crossproduct
 end interface
 contains
-  elemental function add(left, rigth) result(summ)
+  elemental function add(left, right) result(summ)
   type(Vector), intent(in) :: left
-  type(Vector), intent(in) :: rigth
+  type(Vector), intent(in) :: right
   type(Vector)             :: summ
-  summ%x = left%x + rigth%x
-  summ%y = left%y + rigth%y
-  summ%z = left%z + rigth%z
+  summ%x = left%x + right%x
+  summ%y = left%y + right%y
+  summ%z = left%z + right%z
   end function add
   elemental function crossproduct(vec1, vec2) result(cross)
   type(Vector), intent(in) :: vec1
@@ -648,7 +648,7 @@ $caption(none){VecFor, a concrete application}
 $content[font-size:100%;]{
 Vector algebra class for Fortran poor people
 
-A KISS pure Fortran OOD class for computing Vectorial (3D) algebra
+A KISS pure Fortran OOP class for computing Vectorial (3D) algebra
 
 [https://github.com/szaghi/VecFor](https://github.com/szaghi/VecFor)
 }

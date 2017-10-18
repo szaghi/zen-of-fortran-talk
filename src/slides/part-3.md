@@ -47,7 +47,7 @@ $content[font-size:95%;]{
 The real world can be accurately described as a collection of OBJECTS that interact
 ```
 + the focus is on **WHAT WE DO** not in **HOW WE DO**:
-    + real world if made of **OBJETCS** not of **algorithms**:
+    + real world if made of **OBJECTS** not of **algorithms**:
         + identify the base **classes** of objects that dominate the problem;
         + identify the rules of interaction between classes;
         + describe the problem by the definition of **classes dynamics**.
@@ -76,7 +76,7 @@ Encapsulation is about grouping of functionality (methods) and related data (mem
 
 **IMPLEMENTATION** is hidden from the rest of the program, aka **Application Program Interface**.
 
-*Do you need to know exactly how every aspect of a car works (engine, carburettor, alternator...)? No - you need to know how to use the steering wheel, brakes, accelerator...*
+*Do you need to know exactly how every aspect of a car works (engine, carburetor, alternator...)? No - you need to know how to use the steering wheel, brakes, accelerator...*
 }
 $endnote
 
@@ -170,7 +170,7 @@ use gas_t, only : gas
 implicit none
 
 type(gas) :: air     ! a 'gas' object (instance)
-real      :: density ! an alert dentisyt value
+real      :: density ! an alert density value
 
 ! respect the contract, use only public methods
 call air%initialize(Cp=1004.8, &
@@ -267,7 +267,7 @@ type, extends(gas) :: gas_multifluid
   real, allocatable :: concentrations(:)
   contains
     private
-    ! overridded methods
+    ! overridden methods
     procedure, public :: initialize
     ...
 end type gas_multifluid
@@ -359,7 +359,7 @@ $note
 $style[width:100%]
 $caption(none){The Consequence}
 $content[font-size:100%;]{
-+ be ABSTARCT!
++ be ABSTRACT!
 }
 $endnote
 
@@ -933,7 +933,7 @@ U(t+\Delta t) = U(t) + \Delta t U_t
 $$
 It is almost the same...
 
-+ no knowldge of the concrete implementation on U is assumed;
++ no knowledge of the concrete implementation on U is assumed;
 + only the public API of U is used, e.g. `U%t, U+U, U*Dt...`;
 + the `euler` integrator accepts ALL integrand extensions!
 
@@ -1032,7 +1032,7 @@ U^{n+1} = K_1
 $$
 It is almost the same...
 
-+ no knowldge of the concrete implementation on U is assumed;
++ no knowledge of the concrete implementation on U is assumed;
 + only the public API of U is used, e.g. `U%t, U+U, U*Dt...`;
 + the `euler` integrator accepts ALL integrand extensions!
 
@@ -1170,7 +1170,7 @@ So, to integrate the Oscillation ODE we have passed through the **EXTENSION of A
 + for FOODIE clients:
     + a simple, standard API for many ODE solvers:
         + fast-developing of new schemes;
-        + roboustness: the same ODE solver is applied to differnt problems... cross-validation;
+        + robustness: the same ODE solver is applied to different problems... cross-validation;
 }
 $endnote
 
