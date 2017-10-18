@@ -10,7 +10,7 @@ $caption(none){Fortran is **NOT** a legacy language!}
 $content[font-size:140%;]{
 
 + Fortran is the **BEST** general-purpose programming language for **SCIENTIFIC COMPUTING**:
-    + near the best perfomance with easy;
+    + near the best performance with easy;
     + the best **ARRAYS HANDLING** you will ever see;
     + **HPC** ready;
     + near all the math functions you will ever want built-in the language;
@@ -21,7 +21,7 @@ $endnote
 
 $note
 
-$caption(none){Belive me...}
+$caption(none){Believe me...}
 $content[font-size:140%;]{
 Matlab is a **TOY** compared to Fortran!
 }
@@ -291,7 +291,7 @@ $note
 $caption(none){The BAD coming from the past...}
 $content[font-size:90%;]{
 
-Fortran is capable of implicit typing of variables, i.e. variables obtain a type on the basis of **ITS FIRST CHARCTER**... a nightmare!
+Fortran is capable of implicit typing of variables, i.e. variables obtain a type on the basis of **ITS FIRST CHARACTER**... a nightmare!
 
 ```
 |ABCDEFGH|IJKLMN |OPQRSTUVWXYZ|
@@ -306,7 +306,7 @@ $note
 $caption(none){Explicit is **BETTER** than implicit!}
 $content[font-size:90%;]{
 
-For backward compatibility reasons, Fortran default is **IMPLICIT**... always start program units with the statement `implicit none` to disable the default implicity
+For backward compatibility reasons, Fortran default is **IMPLICIT**... always start program units with the statement `implicit none` to disable the default implicitly
 }
 $endnote
 
@@ -449,7 +449,7 @@ $caption(none){Defaults}
 $content[font-size:80%;]{
 + individual elements are accessed by *subscripting* the array;
 + default lower bound is 1 and can be omitted;
-+ upto 7 dimensions;
++ up to 7 dimensions;
 + in contrast to C/C++, Fortran arrays are column major.
 }
 $endnote
@@ -839,7 +839,7 @@ end if [name_of_if]
 ```
 
 + the `if-then-else` construct allows **branching** of algorithms;
-+ each logical expression (`expression1, epression2,...`) are executed sub-sequentially;
++ each logical expression (`expression1, expression2,...`) are executed sub-sequentially;
 + when a block `statement` is executed the `if-then-else` is left (i.e. the control goes to `end if`);
 + the last `else` is executed (if present) if all the previous expression are `.false.`.
 
@@ -1398,7 +1398,7 @@ $caption(none){Usage}
 $content[font-size:80%;]{
 Exchange data through its returned value or by dummy arguments list (impure) or by IO (impure)
 ```fortran
-my_resutl = function_name [([d-arg-list])
+my_result = function_name [([d-arg-list])
 ```
 }
 $endnote

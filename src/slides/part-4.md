@@ -150,7 +150,7 @@ $note
 $caption(none){Compiler Directives}
 $content[font-size:95%;]{
 + comments in your source code and are ignored by compilers unless you tell them otherwise:
-    + serial and parallel codes **live togheter!**
+    + serial and parallel codes **live together!**
         + a serial compilation ignores the directives;
         + a compilation with OpenMP support takes them into account;
 + mark a block of code;
@@ -278,7 +278,7 @@ $content[font-size:100%;]{
     + At least one of the accesses is a write/store
     + In this case the resulting values are undefined
 + The block of code inside a critical construct is executed by only one thread at time
-+ It is a syncronization to avoid simultaneous access to shared data
++ It is a synchronization to avoid simultaneous access to shared data
 ```fortran
 sum = 0
 !$omp parallel private(i, MyThreadID, psum)

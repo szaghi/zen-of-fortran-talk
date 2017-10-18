@@ -56,7 +56,7 @@ $content[text-align:left;padding-left:1%;color:#af8700;]{
 Disclaimer
 
 ```
-this is an informal talk by a poor Fortraner, do not aspect to learn a lot,
+this is an informal talk by a poor Fortraner, do not expect to learn a lot,
 ```
 ```
 probably you already know more Fortran than me...
