@@ -523,7 +523,7 @@ $content[font-size:78%;]{
 ```
 + `size`: total number of elements;
 ```fortran
-`a` has size 21 and `b` has 30
+`a` has size 21 and `b` has 378
 ```
 + `shape`: the shape of an array is its rank and extent;
 ```fortran
